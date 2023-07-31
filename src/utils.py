@@ -12,7 +12,11 @@ def get_all_data_file_names():
     # remove the "combined.json" file as we don't want to include it
     path = "../data/json/"
     files = [filename for filename in os.listdir(path) if filename.endswith(".json")]
-    # files.remove("combined.json")
+
+    # remove the combined.json file, if it's there
+    if "combined.json" in files:
+        files.remove("combined.json")
+        
     return files
 
 def save_formatted_data(data, filename):
