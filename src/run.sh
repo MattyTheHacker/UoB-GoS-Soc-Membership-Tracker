@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run the application
-py main.py
+python main.py
 
 # Add all files to git
 git add --all
