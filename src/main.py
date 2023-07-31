@@ -8,3 +8,4 @@ if __name__ == '__main__':
     # Graph the data
     graphs.graph_all_societies()
     
+    

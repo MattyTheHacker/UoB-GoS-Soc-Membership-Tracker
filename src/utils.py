@@ -33,6 +33,34 @@ def load_dictionary_from_file(filename):
         dictionary = json.load(file)
     return dictionary
 
+def save_combined_to_csv():
+    # get the combined.json file
+    data = load_data_from_file("../data/json/combined.json")
+
+    # get the dates
+    dates = data["dates"]
+
+    # get the socs
+    socs = list(data.keys())
+
+    # remove the dates from the socs
+    socs.remove("dates")
+
+    # create the csv file
+    with open("../data/csv/combined.csv", 'w') as file:
+        # write the header
+        file.write("Society,")
+        for date in dates:
+            file.write(f"{date},")
+        file.write("\n")
+
+        # write the data
+        for soc in socs:
+            file.write(f"{soc},")
+            for count in data[soc]:
+                file.write(f"{count},")
+            file.write("\n")
+
 def get_data(url):
     response = requests.get(url)
     return response.json()
@@ -108,3 +136,4 @@ def combine_all_data():
 if __name__ == '__main__':
     get_society_data()
     combine_all_data()
+    save_combined_to_csv()
