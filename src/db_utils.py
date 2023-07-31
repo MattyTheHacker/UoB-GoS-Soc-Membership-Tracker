@@ -71,10 +71,6 @@ def save_to_database(data, date_generated):
     # commit the changes
     conn.commit()
 
-    # show everything
-    cur.execute("SELECT * FROM society_data")
-    print(cur.fetchall())
-
     # close the connection
     conn.close()
 
