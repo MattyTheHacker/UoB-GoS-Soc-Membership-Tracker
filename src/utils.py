@@ -83,7 +83,7 @@ def generated_date_to_datetime(date_generated):
     return datetime.strptime(date_generated, "%Y-%m-%dT%H%M%S")
 
 def get_society_data():
-    url = "https://www.guildofstudents.com/svc/voting/stats/election/membershipstats/107?groupIds=1&sortBy=itemname&sortDirection=ascending"
+    url = "https://www.guildofstudents.com/svc/voting/stats/election/membershipstats/112?groupIds=1&sortBy=itemname&sortDirection=ascending"
     data = get_data(url)
     date_generated = get_generated_date(data)
     save_formatted_data(data, f"../data/json/{date_generated}.json")
