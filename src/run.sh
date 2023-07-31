@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# go to the right directory
+cd /home/pi/Documents/UoB-GoS-Soc-Membership-Tracker/src
+
 # Run the application
 python main.py
 
