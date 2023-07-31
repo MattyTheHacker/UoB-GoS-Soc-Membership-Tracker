@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import db_utils
 
 from datetime import datetime
 
@@ -86,6 +87,7 @@ def get_society_data():
     url = "https://www.guildofstudents.com/svc/voting/stats/election/membershipstats/112?groupIds=1&sortBy=itemname&sortDirection=ascending"
     data = get_data(url)
     date_generated = get_generated_date(data)
+    db_utils.save_to_database(data, date_generated)
     save_formatted_data(data, f"../data/json/{date_generated}.json")
 
 def combine_all_data():
@@ -130,7 +132,6 @@ def combine_all_data():
     # save the data to a json file
     save_dictionary_to_file(data, "../data/json/combined.json")
 
-        
     
 
 if __name__ == '__main__':
